@@ -18,7 +18,7 @@ double RungeKuttaSolver::SolveEquation(){
 	assert(writeTYData.is_open());
 	writeTYData.setf(std::ios::scientific);
 	writeTYData<<t<<" "<<yold<<"\n";
-	while(t<finalTime){
+	while(t<(finalTime-stepSize)){
 		double k1 = stepSize*RightHandSide(yold,t);
 		double k2 = stepSize*RightHandSide(yold + (0.5*k1), t + (0.5*stepSize));
 		double k3 = stepSize*RightHandSide(yold + (0.5*k2), t + (0.5*stepSize));

@@ -19,7 +19,7 @@ double ForwardEulerSolver::SolveEquation(){
     assert(writeTYData.is_open());
     writeTYData.setf(std::ios::scientific);
     writeTYData<<t<<" "<<yold<<"\n";
-    while(t<finalTime){
+    while(t<(finalTime-stepSize)){
         ynew = yold + stepSize*RightHandSide(yold,t);
         t=t+stepSize;
 	writeTYData<<t<<" "<<ynew<<"\n";
